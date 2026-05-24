@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conversor de arquivos online grátis e 100% seguro. Converta JSON, CSV, legendas ASS e SRT diretamente no seu navegador, sem cadastros e com privacidade total.">
+    <meta name="keywords" content="conversor de arquivos, JSON, CSV, ASS, SRT, legendas, conversão online, privacidade">
+    <meta name="author" content="Converter Tools">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Conversor de Arquivos Online - Grátis e 100% Seguro">
+    <meta property="og:description" content="Converta seus dados e legendas diretamente no seu navegador, sem cadastros e com privacidade total.">
+    <meta property="og:type" content="website">
+    
+    <title>Conversor de Arquivos Online, Grátis e 100% Seguro | Converter Tools</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ===== CSS VARIABLES (TEMA) ===== */
+        :root {
+            --primary-dark: #1e3a8a;
+            --primary-main: #0369a1;
+            --primary-light: #0ea5e9;
+            --accent: #3b82f6;
+            --text-dark: #0f172a;
+            --text-light: #64748b;
+            --bg-light: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border-light: #e2e8f0;
+            --shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+            --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+            
+            /* Tipografia */
+            --font-display: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --spacing-unit: 0.5rem;
+        }
+        
+        /* Modo Escuro */
+        [data-theme="dark"] {
+            --primary-dark: #0f172a;
+            --primary-main: #0284c7;
+            --primary-light: #06b6d4;
+            --accent: #3b82f6;
+            --text-dark: #f1f5f9;
+            --text-light: #cbd5e1;
+            --bg-light: #0f172a;
+            --bg-secondary: #1e293b;
+            --border-light: #334155;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* ===== RESET E BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        a {
+            color: var(--primary-main);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: var(--primary-light);
+        }
+        
+        /* ===== NAVBAR ===== */
+        nav {
+            background-color: var(--bg-light);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-logo {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-main), var(--primary-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--text-dark);
+            font-weight: 500;
+            position: relative;
+            cursor: pointer;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Dropdown */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 0.6rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .dropdown.active .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-light);
+            border: 1px solid var(--border-light);
+            border-radius: 0.5rem;
+            padding: 0.5rem 0;
+            min-width: 200px;
+            box-shadow: var(--shadow);
+            margin-top: 0.5rem;
+            animation: slideDown 0.3s ease;
+        }
+        
+        .dropdown.active .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: background-color 0.2s ease;
+        }
+        
+        .dropdown-item:hover {
+            background-color: var(--bg-secondary);
+            color: var(--primary-main);
+        }
+        
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Toggle de Tema */
+        .theme-toggle {
+            background: none;
+            border: 2px solid var(--primary-light);
+            color: var(--primary-light);
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 50%;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            transition: all 0.3s ease;
+        }
+        
+        .theme-toggle:hover {
+            background-color: var(--primary-light);
+            color: var(--bg-light);
+        }
+        
+        /* Menu Responsivo */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* ===== BANNER ANÚNCIO (Abaixo da Navbar) ===== */
+        .ad-banner {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
+            padding: 2rem;
+            text-align: center;
+            border-bottom: 2px dashed var(--primary-light);
+        }
+        
+        .ad-placeholder {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+        }
+        
+        /* ===== CONTAINER PRINCIPAL ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--bg-light), var(--bg-secondary));
+            animation: fadeIn 0.6s ease;
+        }
+        
+        .hero-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+            animation: slideUp 0.6s ease 0.1s both;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: slideUp 0.6s ease 0.2s both;
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* ===== CARDS DE AÇÃO (Hero Call-to-Action) ===== */
+        .cta-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+            animation: slideUp 0.6s ease 0.3s both;
+        }
+        
+        .cta-card {
+            background: linear-gradient(135deg, var(--primary-light), var(--accent));
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(10px, 10px); }
+        }
+        
+        .cta-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(3, 105, 161, 0.3);
+        }
+        
+        .cta-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-card p {
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-main);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .cta-button:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+            transform: scale(1.05);
+        }
+        
+        /* ===== PLACEHOLDER ANÚNCIO (Dentro do conteúdo) ===== */
+        .ad-content {
+            background-color: var(--bg-secondary);
+            border: 2px dashed var(--border-light);
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            color: var(--text-light);
+            margin: 3rem 0;
+            font-size: 0.875rem;
+        }
+        
+        /* ===== SEÇÕES DE CONTEÚDO ===== */
+        .content-section {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .content-section h2 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary-main);
+        }
+        
+        .content-section h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .content-section p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+        
+        .content-section ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .content-section li {
+            padding-left: 1.5rem;
+            margin-bottom: 0.75rem;
+            position: relative;
+        }
+        
+        .content-section li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-light);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .highlight {
+            color: var(--primary-main);
+            font-weight: 600;
+        }
+        
+        /* ===== FOOTER ===== */
+        footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary-main));
+            color: white;
+            padding: 3rem 2rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h4 {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-column a {
+            display: block;
+            padding: 0.5rem 0;
+            color: rgba(255, 255, 255, 0.8);
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding-top: 1.5rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* ===== RESPONSIVIDADE ===== */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .content-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .cta-cards {
+                gap: 1rem;
+            }
+            
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--bg-light);
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 1rem;
+                border-bottom: 1px solid var(--border-light);
+            }
+            
+            .nav-links.active {
+                display: flex;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                display: none;
+                box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+                margin-top: 0;
+            }
+            
+            .dropdown.active .dropdown-menu {
+                display: block;
+            }
+            
+            .container {
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===== NAVBAR ===== -->
+    <nav>
+        <div class="nav-container">
+            <div class="nav-logo">🔄 Converter Tools</div>
+            
+            <ul class="nav-links">
+                <li class="nav-link"><a href="#home">Home</a></li>
+                
+                <!-- Dropdown: Conversão de Dados -->
+                <li class="dropdown">
+                    <div class="nav-link dropdown-toggle">Conversão de Dados</div>
+                    <div class="dropdown-menu">
+                        <a href="/json-csv" class="dropdown-item">JSON para CSV</a>
+                        <a href="/excel-json" class="dropdown-item">Excel para JSON</a>
+                    </div>
+                </li>
+                
+                <!-- Dropdown: Conversão de Legendas -->
+                <li class="dropdown">
+                    <div class="nav-link dropdown-toggle">Conversão de Legendas</div>
+                    <div class="dropdown-menu">
+                        <a href="/ass-srt" class="dropdown-item">ASS para SRT</a>
+                        <a href="/srt-ass" class="dropdown-item">SRT para ASS</a>
+                    </div>
+                </li>
+                
+                <li>
+                    <button class="theme-toggle" id="themeToggle" title="Alternar tema">🌙</button>
+                </li>
+            </ul>
+            
+            <button class="menu-toggle" id="menuToggle">☰</button>
+        </div>
+    </nav>
+    
+    <!-- ===== ESPAÇO PARA ANÚNCIO ADSENSE (Banner Horizontal) ===== -->
+    <div class="ad-banner">
+        <div class="container">
+            <div class="ad-placeholder">
+                &lt;!-- ESPAÇO RESERVADO PARA ANÚNCIO ADSENSE (728x90 ou responsivo) --&gt;
+            </div>
+        </div>
+    </div>
+    
+    <!-- ===== HERO SECTION ===== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Conversor de Arquivos Online, Grátis e 100% Seguro</h1>
+                <p>Converta seus dados e legendas direto no seu navegador. Sem cadastros, sem filas e com privacidade total.</p>
+                
+                <!-- Cards CTA -->
+                <div class="cta-cards">
+                    <div class="cta-card">
+                        <h3>📊 Conversão de Dados</h3>
+                        <p>Transforme JSON, CSV e Excel com facilidade</p>
+                        <button class="cta-button" onclick="window.location.href='/json-csv'">Ir para Conversores de Dados</button>
+                    </div>
+                    
+                    <div class="cta-card">
+                        <h3>📝 Conversão de Legendas</h3>
+                        <p>Converta ASS, SRT e outros formatos</p>
+                        <button class="cta-button" onclick="window.location.href='/ass-srt'">Ir para Conversores de Legendas</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- ===== ESPAÇO PARA ANÚNCIO ADSENSE (Bloco Quadrado/Sidebar) ===== -->
+    <div class="content-section">
+        <div class="ad-content">
+            &lt;!-- ESPAÇO RESERVADO PARA ANÚNCIO ADSENSE (300x250 ou 336x280) --&gt;
+        </div>
+    </div>
+    
+    <!-- ===== SEÇÃO: POR QUE USAR NOSSA FERRAMENTA? ===== -->
+    <section class="content-section">
+        <h2>Por Que Usar Nossa Ferramenta?</h2>
+        <p>
+            Processar arquivos diretamente no seu navegador oferece inúmeras vantagens técnicas e práticas. 
+            Diferentemente de plataformas tradicionais que enviam seus dados para servidores remotos, nossos conversores 
+            funcionam 100% localmente no seu computador, utilizando tecnologia JavaScript moderna.
+        </p>
+        
+        <h3>Vantagens Principais</h3>
+        <ul>
+            <li><span class="highlight">Privacidade Total:</span> Seus arquivos nunca saem do seu computador. Nenhum servidor remoto acessa seus dados.</li>
+            <li><span class="highlight">Velocidade Extrema:</span> Sem espera por uploads ou processamento em servidores. Conversão instantânea local.</li>
+            <li><span class="highlight">Sem Consumo de Dados Móveis:</span> Uma vez carregada a página, você pode trabalhar sem conexão de internet (offline).</li>
+            <li><span class="highlight">Sem Cadastros:</span> Use livremente sem criar contas ou fornecer informações pessoais.</li>
+            <li><span class="highlight">Sem Limites de Tamanho:</span> Converta arquivos grandes sem preocupação com quotas de servidor.</li>
+            <li><span class="highlight">Totalmente Gratuito:</span> Acesso ilimitado a todos os conversores, sem custos ocultos.</li>
+        </ul>
+        
+        <p>
+            Essa arquitetura <strong>client-side</strong> (lado do cliente) representa o futuro das ferramentas web, 
+            priorizando a experiência do usuário e a segurança dos dados acima de tudo.
+        </p>
+    </section>
+    
+    <!-- ===== SEÇÃO: SEGURANÇA MÁXIMA ===== -->
+    <section class="content-section">
+        <h2>Segurança Máxima: Seu Arquivo, Seu Computador</h2>
+        <p>
+            A segurança de seus dados é nossa prioridade máxima. Nossos conversores funcionam em uma arquitetura 
+            <span class="highlight">100% client-side</span>, o que significa que todo o processamento acontece localmente 
+            no seu navegador, sem enviar qualquer informação para um servidor externo.
+        </p>
+        
+        <h3>Como Funciona a Segurança</h3>
+        <p>
+            Quando você usa um conversor em nossa plataforma:
+        </p>
+        <ul>
+            <li>O arquivo é lido diretamente pela sua máquina</li>
+            <li>O processamento acontece nos recursos do seu computador</li>
+            <li>O arquivo convertido é gerado e baixado localmente</li>
+            <li>Nenhum dado é transmitido pela internet ou armazenado em servidores</li>
+            <li>Sua privacidade é protegida por padrão</li>
+        </ul>
+        
+        <p>
+            Isso significa que <strong>você tem total controle</strong> sobre seus dados. Não há possibilidade de vazamento, 
+            não há logs de processamento e não há terceiros envolvidos. É a forma mais segura e privada de converter arquivos online.
+        </p>
+        
+        <h3>Conformidade com Padrões de Privacidade</h3>
+        <p>
+            Por não coletar, armazenar ou processar dados em servidores externos, nossos conversores estão naturalmente 
+            em conformidade com regulações como LGPD (Lei Geral de Proteção de Dados) e GDPR (Regulamento Geral sobre a 
+            Proteção de Dados). Sua informação é integralmente sua.
+        </p>
+    </section>
+    
+    <!-- ===== SEÇÃO: FORMATOS SUPORTADOS ===== -->
+    <section class="content-section">
+        <h2>Formatos Suportados</h2>
+        <p>
+            Oferecemos conversões entre os formatos de dados e legendas mais populares. Entenda rapidamente 
+            quais são os tipos de arquivo que você pode trabalhar:
+        </p>
+        
+        <h3>Formatos de Dados</h3>
+        <p>
+            <span class="highlight">JSON (JavaScript Object Notation)</span> é um formato leve de troca de dados baseado em texto. 
+            É amplamente utilizado em aplicações web modernas porque é fácil de ler e processar tanto por humanos quanto por máquinas.
+        </p>
+        <p>
+            <span class="highlight">CSV (Comma-Separated Values)</span> é um formato simples onde dados são organizados em linhas e colunas, 
+            separados por vírgulas. É o padrão universal para importação e exportação em planilhas e bancos de dados.
+        </p>
+        <p>
+            <span class="highlight">Excel (.xlsx)</span> é o formato proprietário da Microsoft Office, otimizado para dados 
+            complexos com múltiplas abas, formatação e fórmulas. É amplamente usado em ambientes corporativos.
+        </p>
+        
+        <h3>Formatos de Legendas</h3>
+        <p>
+            <span class="highlight">SRT (SubRip)</span> é o formato mais comum e compatível para legendas. Usa um formato simples 
+            com número de sequência, timecode e texto. Funciona com praticamente qualquer player de vídeo.
+        </p>
+        <p>
+            <span class="highlight">ASS (Advanced SubStation Alpha)</span> é um formato mais avançado que suporta estilos 
+            customizados, cores, animações e formatação rich-text em legendas. É popular entre a comunidade de fãs e criadores.
+        </p>
+        
+        <h3>Conversões Disponíveis</h3>
+        <ul>
+            <li>JSON ↔ CSV</li>
+            <li>Excel → JSON</li>
+            <li>Excel → CSV</li>
+            <li>ASS ↔ SRT</li>
+            <li>E mais conversões em desenvolvimento...</li>
+        </ul>
+    </section>
+    
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Sobre</h4>
+                <a href="#about">Sobre Nós</a>
+                <a href="#mission">Nossa Missão</a>
+                <a href="#blog">Blog</a>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Legal</h4>
+                <a href="/privacy-policy">Política de Privacidade</a>
+                <a href="/terms-of-use">Termos de Uso</a>
+                <a href="/cookies">Política de Cookies</a>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Suporte</h4>
+                <a href="/contact">Contato</a>
+                <a href="/faq">Perguntas Frequentes</a>
+                <a href="/feedback">Enviar Feedback</a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 Converter Tools. Todos os direitos reservados. | Desenvolvido com ❤️ para sua privacidade.</p>
+        </div>
+    </footer>
+    
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+        // ===== GERENCIAMENTO DE TEMA (CLARO/ESCURO) =====
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Detectar tema preferido do sistema
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Carregar tema salvo ou usar preferência do sistema
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                htmlElement.setAttribute('data-theme', savedTheme);
+                updateThemeButton(savedTheme);
+            } else if (prefersDarkScheme.matches) {
+                htmlElement.setAttribute('data-theme', 'dark');
+                updateThemeButton('dark');
+            } else {
+                htmlElement.setAttribute('data-theme', 'light');
+                updateThemeButton('light');
+            }
+        }
+        
+        function updateThemeButton(theme) {
+            themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeButton(newTheme);
+        });
+        
+        // ===== MENU RESPONSIVO =====
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        
+        // Fechar menu ao clicar em um link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+        
+        // ===== DROPDOWNS =====
+        const dropdowns = document.querySelectorAll('.dropdown');
+        
+        dropdowns.forEach(dropdown => {
+            const toggle = dropdown.querySelector('.dropdown-toggle');
+            
+            toggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                
+                // Fechar outros dropdowns
+                dropdowns.forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                    }
+                });
+                
+                // Toggle do dropdown atual
+                dropdown.classList.toggle('active');
+            });
+        });
+        
+        // Fechar dropdowns ao clicar fora
+        document.addEventListener('click', () => {
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
+        });
+        
+        // Fechar menu mobile ao clicar fora
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinks.classList.remove('active');
+            }
+        });
+        
+        // ===== INICIALIZAÇÃO =====
+        loadTheme();
+    </script>
+</body>
+</html>
