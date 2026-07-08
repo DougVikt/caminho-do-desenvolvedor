@@ -66,11 +66,11 @@ Este material consolida tudo o que foi pesquisado e organizado em três arquivos
 
 Imagine um restaurante. O salão com mesas, garçons e clientes é a parte que todo mundo vê — isso seria o front-end. A cozinha, com chefs, fogões, despensa, estoque, controle de pedidos e toda a logística para o prato sair certo — isso é o back-end. Ninguém vê a cozinha, mas se ela funciona mal, o restaurante inteiro quebra.
 
-O desenvolvedor back-end é quem constrói e mantém essa "cozinha" dos sistemas. Ele cuida dos servidores, bancos de dados, APIs, regras de negócio, segurança, performance e tudo que faz o sistema funcionar nos bastidores. Quando você faz login num site, busca um produto, faz uma compra ou vê seu saldo bancário, tem um back-end processando tudo aquilo.
+O desenvolvedor back-end é quem constrói e mantém essa "cozinha" dos sistemas. Ele cuida dos servidores, bancos de dados, APIs, regras de negócio, segurança, performance e tudo que faz o sistema funcionar nos bastidores. Quando você faz login num site, busca um produto, faz uma compra ou vê seu saldo bancário, têm um back-end processando tudo aquilo.
 
 Para ser um desenvolvedor back-end de referência (aquele profissional que outros consultam, que decide arquiteturas, que resolve problemas complexos), você precisa dominar muito mais do que uma linguagem de programação. Você precisa entender o sistema inteiro: de infraestrutura a segurança, de dados a performance, de arquitetura a entrega em produção.
 
-Este guia existe para te levar exatamente até lá, com um caminho claro, uma metodologia comprovada e um plano passo a passo. não importa se você está começando do zero ou se já tem alguma experiência — o importante é seguir a ordem certa e nunca pular os fundamentos.
+Este guia existe para te levar exatamente até lá, com um caminho claro, uma metodologia comprovada e um plano passo a passo. não importa se você está começando do zero ou se já têm alguma experiência — o importante é seguir a ordem certa e nunca pular os fundamentos.
 
 ---
 
@@ -84,7 +84,7 @@ Toda construção precisa de uma fundação sólida. Se a base for fraca, o rest
 
 **lógica de programação** é a habilidade mais fundamental. É a capacidade de quebrar um problema em passos menores, organizar esses passos em uma sequência lógica e traduzir isso para algo que o computador possa executar. não importa se você usa Python, Java ou Go — a lógica é a mesma. É como aprender a cozinhar: a receita pode mudar, mas o conceito de ferver água, cortar ingredientes e medir temperaturas é universal.
 
-**estruturas de dados** são as formas como organizamos a informação na memória do computador. Arrays, listas ligadas, pilhas, filas, árvores, grafos, tabelas hash — cada uma tem um propósito, pontos fortes e fracos. Saber escolher a estrutura certa para cada problema é o que separa um código eficiente de um código lento. Um array é ótimo para acesso rápido por índice, mas ruim para inserções no meio. Uma lista ligada é o contrário. Uma tabela hash dá acesso quase instantâneo a qualquer elemento, mas consome mais memória. Você precisa conhecer todas para saber qual usar em cada situação.
+**estruturas de dados** são as formas como organizamos a informação na memória do computador. Arrays, listas ligadas, pilhas, filas, árvores, grafos, tabelas hash — cada uma têm um propósito, pontos fortes e fracos. Saber escolher a estrutura certa para cada problema é o que separa um código eficiente de um código lento. Um array é ótimo para acesso rápido por índice, mas ruim para inserções no meio. Uma lista ligada é o contrário. Uma tabela hash dá acesso quase instantâneo a qualquer elemento, mas consome mais memória. Você precisa conhecer todas para saber qual usar em cada situação.
 
 **Algoritmos** são as receitas para resolver problemas computacionais. Busca linear, busca binária, ordenação (bubble sort, quick sort, merge sort), recursão, algoritmos em grafos (DFS, BFS, Dijkstra). Você não precisa implementar tudo de cabeça, mas precisa entender como funcionam, qual a complexidade de cada um e quando aplicar. A notação **Big O** é a linguagem que usamos para medir essa complexidade — O(1), O(n), O(n²), O(log n). Ela te diz se seu código vai rodar em milissegundos ou em horas quando os dados crescerem.
 
@@ -176,7 +176,7 @@ segurança não é uma camada que se adiciona no final. E uma propriedade do sis
 - Gestao segura de secrets (variáveis de ambiente, HashiCorp Vault, AWS Secrets Manager).
 - HTTPS em tudo (certificados TLS, configuração segura de cipher suites).
 - Logs de auditoria para rastrear quem fez o que é quando.
-- Princípio do menor privilegio: cada componente do sistema tem acesso apenas ao que precisa.
+- Princípio do menor privilegio: cada componente do sistema têm acesso apenas ao que precisa.
 
 Conforme você avança: **Zero Trust Architecture** (nunca confie, sempre verifique), **Threat Modeling** com STRIDE, **SAST/DAST** (análise estática e dinâmica de segurança), **compliance** (LGPD no Brasil, GDPR na Europa).
 
@@ -189,7 +189,7 @@ arquitetura de software e sobre como organizar o código para que ele seja suste
 **Domain-Driven Design (DDD)**: uma abordagem criada por Eric Evans para modelar software complexo. conceitos principais: **Bounded Contexts** (limites explicitos de cada modelo), **Entidades** (objetos com identidade única), **Value Objects** (objetos sem identidade, definidos por seus atributos), **Aggregates** (grupo de entidades que devem ser consistentes juntas), **Eventos de Dominio** (algo que aconteceu no domínio que outros contextos podem querer saber).
 
 **soLID**: cinco princípios de design de classes:
-- **S**ingle Responsibility: uma classe tem um único motivo para mudar.
+- **S**ingle Responsibility: uma classe têm um único motivo para mudar.
 - **O**pen/Closed: aberta para extensão, fechada para modificação.
 - **L**iskov Substitution: subtipos devem ser substituiveis por seus tipos base.
 - **I**nterface Segregation: interfaces específicas são melhores que uma geral.
@@ -253,7 +253,7 @@ O que funciona para 10 usuários pode quebrar para 10.000. Performance e escala 
 
 **Profiling**: use profilers para identificar gargalos. Onde o tempo está sendo gasto? Onde a memória está sendo alocada? **Benchmarking** e teste de carga medem throughput (requisições por segundo) e latencia (p50, p95, p99 — o percentil 99 é o mais importante, pois mostra a experiência dos usuários mais prejudicados).
 
-**Estrategias de escala**: **Vertical** (maquina maior — mais CPU, mais RAM) tem limite. **Horizontal** (mais maquinas) é o caminho para sistemas grandes. **Consistent Hashing** distribui dados entre nos de forma eficiente quando o numero de nos muda.
+**Estrategias de escala**: **Vertical** (maquina maior — mais CPU, mais RAM) têm limite. **Horizontal** (mais maquinas) é o caminho para sistemas grandes. **Consistent Hashing** distribui dados entre nos de forma eficiente quando o numero de nos muda.
 
 ### 1.11 Observabilidade — enxergando o sistema no escuro
 
@@ -265,7 +265,7 @@ Produzir e facil. O dificil e saber o que está acontecendo em produção quando
 
 **Tracing distribuido**: uma requisição que passa por 5 microservices — como descobrir qual deles está lento? **OpenTelemetry** é o padrão atual para instrumentação. **Jaeger** ou **Zipkin** visualizam o tracing completo, mostrando onde o tempo foi gasto em cada serviço.
 
-**Alertas**: não adianta ter métricas se ninguém olha. Configure alertas para quando algo sair do aceitavel. **SLO** (Service Level Objective): sua meta de confiabilidade. **SLI** (Service Level Indicator): a métrica real. **SLA** (Service Level Agreement): o acordo com o cliente. **Error Budget**: quando seu SLO está sendo violado, você tem menos "orcamento de erros" para gastar com mudancas arriscadas.
+**Alertas**: não adianta ter métricas se ninguém olha. Configure alertas para quando algo sair do aceitavel. **SLO** (Service Level Objective): sua meta de confiabilidade. **SLI** (Service Level Indicator): a métrica real. **SLA** (Service Level Agreement): o acordo com o cliente. **Error Budget**: quando seu SLO está sendo violado, você têm menos "orcamento de erros" para gastar com mudancas arriscadas.
 
 **Health checks**: endpoints que dizem se o serviço está vivo (liveness) e pronto para receber tráfego (readiness). Essenciais para orquestradores como Kubernetes.
 
@@ -279,7 +279,7 @@ Capacidade de entender regras de negócio, ler e levantar requisitos, fazer esti
 
 ### 1.13 Os níveis de Proficiência
 
-O caminho até a referência tem marcos claros. Cada nível pressupoe o anterior.
+O caminho até a referência têm marcos claros. Cada nível pressupoe o anterior.
 
 **nível básico (Junior)** — o que você precisa para comecar profissionalmente:
 - lógica de programação, estruturas de dados e Git
@@ -368,7 +368,7 @@ Saber **o que** estudar e só metade do caminho. Você também precisa saber **c
 
 ### 2.1 A Filosofia do Loop — por que estudar em espiral
 
-A maioria das pessoas estuda em linha reta: comeca algo, termina, nunca mais revisa. O problema e que conhecimento técnico tem prazo de validade. Tecnologias mudam, frameworks evoluem, paradigmas se transformam. Estudar uma vez só não e suficiente.
+A maioria das pessoas estuda em linha reta: comeca algo, termina, nunca mais revisa. O problema e que conhecimento técnico têm prazo de validade. Tecnologias mudam, frameworks evoluem, paradigmas se transformam. Estudar uma vez só não e suficiente.
 
 Profissionais de alto nível (Staff Engineers, Principal Engineers, arquitetos de empresas como Google, Microsoft, Amazon, Meta, Netflix, Cloudflare) estudam em **ciclos**. Eles não veem o conhecimento como uma escada, mas como uma **rede** — e revisitam essa rede periodicamente, cada vez com mais profundidade.
 
@@ -404,7 +404,7 @@ Depois de chegar ao topo, você volta ao inicio. Mas agora entende tudo melhor. 
 
 ### 2.2 O Loop de 6 Meses — o ciclo completo
 
-O ciclo tem 6 meses, com um tema ancora por mes. Ao final dos 6 meses, você recomeca do Mes 1, mas num nível de profundidade maior. Cada mes tem seu foco, mas dentro de cada mes ha uma rotina semanal que nunca muda.
+O ciclo têm 6 meses, com um tema ancora por mes. Ao final dos 6 meses, você recomeca do Mes 1, mas num nível de profundidade maior. Cada mes têm seu foco, mas dentro de cada mes ha uma rotina semanal que nunca muda.
 
 **Mes 1: Fundamentos e Linguagem Base**
 
@@ -617,7 +617,7 @@ Esta seção é o seu cronograma de estudos. são 15 fases (da Fase 0 a Fase 14)
 
 **Tratamento de erros**: nem tudo sai como planejado. Arquivo não encontrado, conexao perdida, dado invalido. Use try/catch (ou try/except) para capturar e tratar erros graciosamente, sem derrubar o programa.
 
-**Orientação a Objetos**: um paradigma que organiza código em "objetos" que tem atributos (dados) e métodos (comportamentos). Os quatro pilares: encapsulamento (esconder detalhes internos), herança (reutilizar código), polimorfismo (um método, vários comportamentos), abstração (modelar apenas o relevante).
+**Orientação a Objetos**: um paradigma que organiza código em "objetos" que têm atributos (dados) e métodos (comportamentos). Os quatro pilares: encapsulamento (esconder detalhes internos), herança (reutilizar código), polimorfismo (um método, vários comportamentos), abstração (modelar apenas o relevante).
 
 **Programação funcional básica**: funções puras (mesma entrada, mesma saida, sem efeitos colaterais), imutabilidade (não modificar dados, criar novos), map/filter/reduce (transformar listas de forma declarativa).
 
@@ -638,7 +638,7 @@ O importante e **reescrever os exercicios sem consultar a solução** e **explic
 
 **O que estudar**:
 
-**HTTP**: o protocolo que a web usa. Toda comúnicação entre cliente e servidor é uma requisição HTTP seguida de uma resposta. Requisições tem métodos (GET para buscar, POST para criar, PUT para atualizar tudo, PATCH para atualizar parte, DELETE para remover), cabeçalhos (headers) com metadados (Content-Type, Authorization, Accept), e corpo (body) com dados (geralmente JsoN).
+**HTTP**: o protocolo que a web usa. Toda comúnicação entre cliente e servidor é uma requisição HTTP seguida de uma resposta. Requisições têm métodos (GET para buscar, POST para criar, PUT para atualizar tudo, PATCH para atualizar parte, DELETE para remover), cabeçalhos (headers) com metadados (Content-Type, Authorization, Accept), e corpo (body) com dados (geralmente JsoN).
 
 **Status codes**: o servidor responde com um código numerico. 200 OK (deu certo), 201 Created (criou com sucesso), 400 Bad Request (requisição mal formatada), 401 Unauthorized (não autenticado), 403 Forbidden (não autorizado), 404 Not Found (não existe), 500 Internal Server Error (erro no servidor).
 
@@ -785,7 +785,7 @@ Git e mais que "git add, git commit, git push". E a ferramenta de colaboração 
 
 **Objetivo**: Aprender a desenhar sistemas, não só implementar tarefas.
 
-**soLID**: os cinco princípios do design orientado a objetos. O mais importante na prática: Single Responsibility (cada classe tem um único motivo para mudar) e Dependency Inversion (dependa de abstrações, não de implementações concretas).
+**soLID**: os cinco princípios do design orientado a objetos. O mais importante na prática: Single Responsibility (cada classe têm um único motivo para mudar) e Dependency Inversion (dependa de abstrações, não de implementações concretas).
 
 **Clean Architecture**: camadas concêntricas. No centro, as regras de negócio (entities, use cases). Fora, os adaptadores (controllers, repositories, gateways). Dependencias apontam para dentro. O banco de dados é um detalhe, não o centro do sistema.
 
@@ -1019,7 +1019,7 @@ Este guia foi compilado a partir de pesquisas em:
 
 ## Palavras Finais
 
-Se você chegou até aqui, já tem uma vantagem enorme: você tem um mapa. A maioria das pessoas comeca a estudar sem saber para onde ir, pulando de tutorial em tutorial, aprendendo ferramentas antes de entender princípios.
+Se você chegou até aqui, já têm uma vantagem enorme: você têm um mapa. A maioria das pessoas comeca a estudar sem saber para onde ir, pulando de tutorial em tutorial, aprendendo ferramentas antes de entender princípios.
 
 O caminho e longo. Pode levar de 3 a 8 anos para chegar ao nível de referência, dependendo da sua dedicação e oportunidades. não tenha pressa. O importante não e chegar rápido, e chegar bem — com fundamentos sólidos que sustentem o conhecimento que você vai acumular.
 
