@@ -40,7 +40,9 @@ Guia completo para desenvolvimento back-end: fundamentos, bancos de dados, APIs,
 - [Guia completo de estudo](back/guia-backend.md) — conhecimento, metodologia e plano consolidados em um único documento
 
 ### Front-end
-[Em breve](front/)
+Guia completo para desenvolvimento front-end: HTML, CSS, JavaScript, TypeScript, frameworks, acessibilidade, performance, testes e arquitetura de interfaces.
+
+- [Guia completo de estudo](front/guia-frontend.md) — conhecimento, metodologia e plano consolidados em um único documento
 
 ### DevOps
 [Em breve](devops/)
