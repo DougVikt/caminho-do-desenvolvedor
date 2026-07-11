@@ -1,0 +1,93 @@
+# Caminho do Desenvolvedor
+> Repositório de guias de estudo completos para formação em TI — do zero ao nível de referência.
+
+## Sobre o projeto
+Este repositório contém guias de estudo escritos em tom pedagógico (como se um professor estivesse explicando cada etapa). Cada guia consolida três pilares — **o que estudar** (conhecimento), **como estudar** (metodologia de ciclo contínuo) e **quando estudar** (cronograma faseado) — em um único documento. Todo o conteúdo está em português brasileiro, com explicações contextuais, analogias e planos passo a passo.
+
+## Público-alvo
+- Pessoas começando do absoluto zero em programação
+- Profissionais de outras áreas fazendo transição para TI
+- Desenvolvedores iniciantes que querem organizar os estudos e preencher lacunas
+- Qualquer pessoa que prefere um caminho estruturado com metodologia de aprendizado contínuo
+
+## Objetivo
+Levar o estudante **do zero até o nível de referência** — aquele profissional que outros consultam, que decide arquiteturas e resolve problemas complexos.
+
+## Documentos disponíveis
+
+### Guias completos
+
+- **Guia de Estudo Back-end**
+  URL: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/guia-backend.md
+  Conteúdo: fundamentos de programação, lógica, web e internet, redes, HTTP/HTTPS, bancos de dados (SQL/NoSQL), APIs REST, frameworks back-end, arquitetura de software (SOLID, design patterns, clean architecture), segurança (OWASP, autenticação, autorização, criptografia), infraestrutura (Linux, Docker, cloud, deploy), concorrência, filas, cache, observabilidade (logging, métricas, tracing), testes (unitários, integração, TDD), performance e escala. Inclui metodologia de estudo (Loop de 6 meses), plano de carreira e matriz de competências.
+
+- **Guia de Estudo Front-end**
+  URL: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/guia-frontend.md
+  Conteúdo: HTML semântico e acessibilidade, CSS moderno (Flexbox, Grid, animações, variáveis, responsividade), JavaScript (ES6+, DOM, eventos, promises, async/await, métodos de array), TypeScript (tipos, interfaces, generics), frameworks (React/Vue/Angular, hooks, estado, roteamento), meta-frameworks (Next.js, SSR/SSG), consumo de APIs (REST, autenticação, cache, TanStack Query), performance (Core Web Vitals, code splitting, lazy loading, CRP), design systems e atomic design, testes (unitários, integração, E2E), segurança front-end (XSS, CSP, CORS), SEO, UX/UI. Inclui metodologia de estudo, plano faseado (Fase 0-12) e projetos práticos.
+
+### Diretórios de conteúdo
+
+back/ — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/back
+front/ — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/front
+
+### Arquivos de referência originais
+
+- Pesquisa de conteúdo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/conteudo.txt
+- Rotina de estudo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/rotina%20de%20estudo.txt
+- Calendário de estudo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/calendario%20de%20estudo.txt
+- Pesquisa de conteúdo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/conteudo.txt
+- Rotina de estudo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/rotina%20de%20estudo.txt
+- Calendário de estudo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/calendario%20de%20estudo.txt
+
+## Metodologia de estudo (presente em todos os guias)
+
+Cada guia segue uma metodologia de **Loop Infinito de 6 meses**: o estudante revisita periodicamente todos os fundamentos, cada vez com mais profundidade, como uma espiral ascendente. A estrutura combina:
+
+1. **Base nova** — tema principal do período
+2. **Revisão ativa** — conteúdo de períodos anteriores
+3. **Prática** — exercícios, laboratórios e projetos
+4. **Qualidade** — testes, refatoração, debug e análise
+5. **Fechamento** — anotações, reflexão e lições aprendidas
+
+## Áreas em desenvolvimento
+
+Estas áreas estão previstas e terão seus próprios guias no futuro:
+
+- Front-end (guia disponível)
+- DevOps — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/devops
+- Mobile — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/mobile
+- Dados (Ciência e Análise) — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/dados
+- Desenvolvimento de IA — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/ia
+- Segurança da Informação — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/seguranca
+- Cloud Computing — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/cloud
+- Engenharia de Software — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/engenharia
+- Qualidade e Testes (QA) — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/qa
+- Carreira — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/carreira
+
+## Estrutura do repositório
+
+```
+/
+├── README.md              — página inicial com navegação entre áreas
+├── llms.txt               — este arquivo, para IA
+├── LICENSE                — MIT License
+├── back/                  — guia e arquivos de referência de back-end
+│   ├── guia-backend.md    — guia completo consolidado (~81KB)
+│   ├── conteudo.txt       — pesquisa original de conteúdo
+│   ├── rotina de estudo.txt — pesquisa original de metodologia
+│   └── calendario de estudo.txt — pesquisa original de cronograma
+├── front/                 — guia e arquivos de referência de front-end
+│   ├── guia-frontend.md   — guia completo consolidado (~82KB)
+│   ├── conteudo.txt       — pesquisa original de conteúdo
+│   ├── rotina de estudo.txt — pesquisa original de metodologia
+│   └── calendario de estudo.txt — pesquisa original de cronograma
+├── devops/                — [em breve]
+├── mobile/                — [em breve]
+├── dados/                 — [em breve]
+├── ia/                    — [em breve]
+├── seguranca/             — [em breve]
+├── cloud/                 — [em breve]
+├── engenharia/            — [em breve]
+├── qa/                    — [em breve]
+└── carreira/              — [em breve]
+```
