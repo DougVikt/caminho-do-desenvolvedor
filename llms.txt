@@ -30,15 +30,6 @@ Levar o estudante **do zero até o nível de referência** — aquele profission
 back/ — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/back
 front/ — https://github.com/anomalyco/caminho-do-desenvolvedor/tree/main/front
 
-### Arquivos de referência originais
-
-- Pesquisa de conteúdo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/conteudo.txt
-- Rotina de estudo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/rotina%20de%20estudo.txt
-- Calendário de estudo back-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/back/calendario%20de%20estudo.txt
-- Pesquisa de conteúdo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/conteudo.txt
-- Rotina de estudo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/rotina%20de%20estudo.txt
-- Calendário de estudo front-end: https://raw.githubusercontent.com/anomalyco/caminho-do-desenvolvedor/main/front/calendario%20de%20estudo.txt
-
 ## Metodologia de estudo (presente em todos os guias)
 
 Cada guia segue uma metodologia de **Loop Infinito de 6 meses**: o estudante revisita periodicamente todos os fundamentos, cada vez com mais profundidade, como uma espiral ascendente. A estrutura combina:
@@ -71,16 +62,10 @@ Estas áreas estão previstas e terão seus próprios guias no futuro:
 ├── README.md              — página inicial com navegação entre áreas
 ├── llms.txt               — este arquivo, para IA
 ├── LICENSE                — MIT License
-├── back/                  — guia e arquivos de referência de back-end
+├── back/
 │   ├── guia-backend.md    — guia completo consolidado (~81KB)
-│   ├── conteudo.txt       — pesquisa original de conteúdo
-│   ├── rotina de estudo.txt — pesquisa original de metodologia
-│   └── calendario de estudo.txt — pesquisa original de cronograma
-├── front/                 — guia e arquivos de referência de front-end
+├── front/
 │   ├── guia-frontend.md   — guia completo consolidado (~82KB)
-│   ├── conteudo.txt       — pesquisa original de conteúdo
-│   ├── rotina de estudo.txt — pesquisa original de metodologia
-│   └── calendario de estudo.txt — pesquisa original de cronograma
 ├── devops/                — [em breve]
 ├── mobile/                — [em breve]
 ├── dados/                 — [em breve]
